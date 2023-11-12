@@ -1,9 +1,8 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import {Route, Routes} from "react-router-dom";
-import Layout from "./components/Layout/Layout.jsx";
-import MainPage from "./pages/Main/MainPage.jsx";
-import CatalogPage from "./pages/Catalog/CatalogPage.jsx";
-import FavoritesPage from "./pages/Favorites/FavoritesPage.jsx";
+import Layout from "./components/Layout/Layout";
+import MainPage from "./pages/Main/MainPage";
+import CatalogPage from "./pages/Catalog/CatalogPage";
+import FavoritesPage from "./pages/Favorites/FavoritesPage";
 
 function App() {
   return (
@@ -12,9 +11,9 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/favourites" element={<FavoritesPage />} />
+          <Route path="*" element={<MainPage />} />
         </Route>
-        <Route path="*" element={<MainPage />} />
       </Routes>
     </div>
   );
