@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import {Route, Routes} from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import MainPage from "./pages/Main/MainPage";
@@ -9,7 +10,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<MainPage  />} />
+          <Route index element={<MainPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Route>
