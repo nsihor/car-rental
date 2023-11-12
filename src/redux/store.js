@@ -8,11 +8,11 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
-import { carsReducer } from './contactsSlice';
+import { carsReducer } from './carsSlice.js';
 
 export const store = configureStore({
     reducer: {
-        phonebook: carsReducer,
+        cars: carsReducer,
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({
