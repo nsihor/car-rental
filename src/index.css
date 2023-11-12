@@ -3,4 +3,9 @@
 
 body {
     font-family: 'Manrope', sans-serif;
+    color: #121417;
+}
+
+.form-select, .form-control{
+    height: 48px;
 }

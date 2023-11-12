@@ -1,4 +1,4 @@
-import { createSelector } from '@reduxjs/toolkit';
+// import { createSelector } from '@reduxjs/toolkit';
 export const getCars = state => state.cars.cars;
 export const getCar = state => state.cars.car;
 

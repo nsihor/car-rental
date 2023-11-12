@@ -1,9 +1,10 @@
 import Button from "react-bootstrap/Button";
-import css from './Btn.module.css'
+import css from './Btn.module.css';
+import PropTypes from "prop-types";
 const Btn = ({name ,handleClick}) => {
-    let width = ''
+    let width = '';
     switch (name) {
-        case 'Learn More':
+        case 'Learn more':
             width = '274px';
             break
         case 'Rental car':
@@ -21,3 +22,8 @@ const Btn = ({name ,handleClick}) => {
 )}
 
 export default Btn;
+
+Btn.PropsType = {
+    name: PropTypes.string.isRequired,
+    handleClick: PropTypes.func
+}

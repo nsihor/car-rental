@@ -1,0 +1,79 @@
+.card {
+    width: 274px;
+    height: 476px;
+    border: 0;
+    border-radius: 12px;
+    position: relative;
+}
+
+.img {
+    width: auto;
+    height: 268px;
+    object-fit: cover;
+
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.svg {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 18px;
+    height: 18px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    margin-bottom: 8px;
+}
+
+.model{
+    color: #3470FF;
+}
+
+.bottomText {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    column-gap: 12px;
+    color: rgba(18, 20, 23, 0.50);
+
+    height: 42px;
+    margin-bottom: 28px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.word {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.word:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -6px;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(18, 20, 23, 0.10);
+}
+
+.lastWord{
+    /*width: 100px;*/
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+}
