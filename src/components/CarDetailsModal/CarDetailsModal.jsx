@@ -9,7 +9,7 @@ const CarDetailsModal = ({data}) => {
 
     return (
         <div className={modalCss.wrapper}>
-            <img alt='car' className={clsx(modalCss.img, 'card-img-top mb-3')} src={data.img} />
+            <img alt='car' className={clsx(modalCss.img, 'card-img-top')} src={data.img} />
             <div className={css.title}>
                 <div>
                     <span>{data.make}</span>{' '}<span className={css.model}>{data.model}</span><span>, {data.year}</span>

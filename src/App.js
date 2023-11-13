@@ -1,11 +1,14 @@
 import {Route, Routes} from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import MainPage from "./pages/Main/MainPage";
-import CatalogPage from "./pages/Catalog/CatalogPage";
-import FavoritesPage from "./pages/Favorites/FavoritesPage";
-import {useEffect} from "react";
+import {lazy, Suspense, useEffect} from "react";
 import {fetchCars} from "./redux/operations";
 import {useDispatch} from "react-redux";
+import Loader from './components/Loader/Loader';
+
+
+const Layout = lazy(() => import('./components/Layout/Layout'));
+const CatalogPage = lazy(() => import('./pages/Catalog/CatalogPage'));
+const FavoritesPage = lazy(() => import('./pages/Favorites/FavoritesPage'));
+const MainPage = lazy(() => import('./pages/Main/MainPage'));
 
 function App() {
   const dispatch = useDispatch()
@@ -14,7 +17,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <Suspense fallback={<Loader/>}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
@@ -23,7 +26,7 @@ function App() {
           <Route path="*" element={<MainPage />} />
         </Route>
       </Routes>
-    </div>
+    </Suspense>
   );
 }
 
