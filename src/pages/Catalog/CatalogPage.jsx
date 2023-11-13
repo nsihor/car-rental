@@ -20,7 +20,14 @@ const CatalogPage = () => {
         rentalCompany: car.rentalCompany,
         type: car.type,
         functionalities: car.functionalities,
-        isFavourite: isFavouriteInclude(car.id)
+        isFavourite: isFavouriteInclude(car.id),
+        fuelConsumption: car.fuelConsumption,
+        engineSize: car.engineSize,
+        description: car.description,
+        accessories: car.accessories,
+        rentalConditions: car.rentalConditions,
+        mileage: car.mileage,
+        rentalPrice: car.rentalPrice
     }))
 
     return (

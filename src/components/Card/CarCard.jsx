@@ -4,10 +4,15 @@ import sprite from '../../img/sprite.svg'
 import Btn from "../Btn/Btn";
 import {useDispatch} from "react-redux";
 import {changeFavourite} from "../../redux/carsSlice";
+import {useState} from "react";
+import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
+import CarDetailsModal from "../CarDetailsModal/CarDetailsModal";
 
 const CarCard = ({data}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
     const dispatch = useDispatch();
 
+    const handleModalSwitch = () => setIsModalOpen(prevState => !prevState);
 
     return (
         <Card className={css.card}>
@@ -25,7 +30,7 @@ const CarCard = ({data}) => {
                     <div>
                         <span>{data.make}</span>{' '}<span className={css.model}>{data.model}</span><span>, {data.year}</span>
                     </div>
-                    <span>50$</span>
+                    <span>{data.rentalPrice}$</span>
                 </div>
                 <div className={css.bottomText}>
                     <span className={css.word}>{data.city}</span>
@@ -36,8 +41,9 @@ const CarCard = ({data}) => {
                     <span className={css.word}>{data.id}</span>
                     <span className={css.word}>{data.functionalities[0]}</span>
                 </div>
-                <Btn name='Learn more'/>
+                <Btn name='Learn more' handleClick={handleModalSwitch}/>
             </div>
+            {isModalOpen && <BasicModalWindow onClose={handleModalSwitch}><CarDetailsModal data={data}/></BasicModalWindow>}
         </Card>
     )
 }

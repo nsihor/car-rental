@@ -1,0 +1,86 @@
+.wrapper {
+    max-width: 541px;
+    padding: 40px;
+}
+
+.img {
+    border-radius: 12px;
+    width: 100%;
+}
+.description, span.af {
+    color: #121417;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.afText, .conditionsText {
+    display: flex;
+    flex-wrap: wrap;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.afText {
+    row-gap: 6px;
+    column-gap: 12px;
+    color: rgba(18, 20, 23, 0.50);
+    margin-bottom: 14px;
+}
+
+.af {
+    display: block;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.word {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.word:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -6px;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(18, 20, 23, 0.10);
+}
+
+.conditionsText {
+    gap: 8px;
+}
+
+.condition {
+    padding: 7px 14px;
+    border-radius: 35px;
+    background: #F9F9F9;
+
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.24px;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    width: 168px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.42;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+
+

@@ -8,9 +8,6 @@ const Btn = ({name ,handleClick}) => {
         case 'Learn more':
             width = '274px';
             break
-        case 'Rental car':
-            width = '168px';
-            break
         case 'Search':
             width = '136px'
             type = 'submit'
