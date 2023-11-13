@@ -7,3 +7,9 @@
     margin-top: 50px;
     list-style: none;
 }
+
+@media screen and (max-width: 768px) {
+    .list{
+        justify-content: center;
+    }
+}
