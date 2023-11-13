@@ -3,8 +3,16 @@ import Layout from "./components/Layout/Layout";
 import MainPage from "./pages/Main/MainPage";
 import CatalogPage from "./pages/Catalog/CatalogPage";
 import FavoritesPage from "./pages/Favorites/FavoritesPage";
+import {useEffect} from "react";
+import {fetchCars} from "./redux/operations";
+import {useDispatch} from "react-redux";
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
+
   return (
     <div>
       <Routes>

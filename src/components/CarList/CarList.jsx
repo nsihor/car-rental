@@ -1,43 +1,34 @@
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchCars} from "../../redux/operations";
-import {getCars} from "../../redux/selectors";
+import {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import CarCard from "../Card/CarCard";
 import css from "./CarList.module.css"
 
-const CarList = () => {
-    const dispatch = useDispatch();
-    const cars = useSelector(getCars);
+const CarList = ({data}) => {
+    const [noOfElement, setNoOfElement] = useState(12);
+    const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true)
 
-    const updatedCars = cars.map(car => ({
-        id: car.id,
-        img: car.img,
-        make: car.make,
-        model: car.model,
-        year: car.year,
-        city: car.address.split(', ')[1],
-        country: car.address.split(', ')[2],
-        rentalCompany: car.rentalCompany,
-        type: car.type,
-        functionalities: car.functionalities
-    }))
+    const carSlice = data.slice(0, noOfElement)
 
+    const loadMore = () => {
+            setNoOfElement(prevState => prevState + 8)
+    }
 
     useEffect(() => {
-        dispatch(fetchCars());
-    }, [dispatch]);
+        if (noOfElement >= data.length ) {
+            setIsLoadMoreVisible(false)
+        } else setIsLoadMoreVisible(true)
+    }, [noOfElement, data.length]);
 
-    useEffect(() => {
-        console.log(cars)
-    }, [cars]);
 
 
     return (
         <Container>
             <ul className={css.list}>
-                {updatedCars.map(car =><li key={car.id}><CarCard data={car}/></li>)}
+                {carSlice.map(car =><li key={car.id}><CarCard data={car}/></li>)}
             </ul>
+            {isLoadMoreVisible && <div className='my-5 py-4 w-100 d-flex justify-content-center'>
+                <a onClick={loadMore} className='link-underline-primary'>Load more</a>
+            </div>}
         </Container>
     )
 }

@@ -19,7 +19,7 @@ const initialState = {
     cars: [],
     car: {},
     filter: '',
-    favourite: '',
+    favourite: [],
     error: null,
     isLoading: false,
     isRefreshing: false,
@@ -31,6 +31,15 @@ const carsSlice = createSlice({
     reducers: {
         setFilter(state, { payload }) {
             state.filter = payload;
+        },
+        changeFavourite(state, {payload}) {
+            const isAlreadyFavourite = state.favourite.includes(payload);
+
+            if (isAlreadyFavourite) {
+                state.favourite = state.favourite.filter(item => item !== payload);
+            } else {
+                state.favourite.push(payload);
+            }
         },
     },
     extraReducers: builder =>
@@ -48,9 +57,9 @@ const carsSlice = createSlice({
 
 
 const persistConfig = {
-    key: 'favourites',
+    key: 'cars',
     storage,
-    whitelist: ['favourites, filter'],
+    whitelist: ['favourite', 'filter'],
 };
 
 export const carsReducer = persistReducer(
@@ -58,4 +67,4 @@ export const carsReducer = persistReducer(
     carsSlice.reducer
 );
 
-export const { setFilter } = carsSlice.actions;
+export const { setFilter, changeFavourite } = carsSlice.actions;
