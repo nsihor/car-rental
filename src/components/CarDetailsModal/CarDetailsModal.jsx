@@ -1,6 +1,7 @@
 import css from "../Card/CarCard.module.css";
 import modalCss from "./CarDetailsModal.module.css"
 import clsx from "clsx";
+import PropTypes from "prop-types";
 
 const CarDetailsModal = ({data}) => {
     const splitRentalConditions = data.rentalConditions.split('\n')
@@ -43,3 +44,7 @@ const CarDetailsModal = ({data}) => {
 }
 
 export default CarDetailsModal;
+
+CarDetailsModal.PropsType = {
+    data: PropTypes.array
+}

@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import CarCard from "../Card/CarCard";
 import css from "./CarList.module.css"
+import PropTypes from "prop-types";
 
 const CarList = ({data}) => {
     const [noOfElement, setNoOfElement] = useState(12);
@@ -34,3 +35,7 @@ const CarList = ({data}) => {
 }
 
 export default CarList
+
+CarList.PropsType = {
+    data: PropTypes.array
+}

@@ -10,24 +10,8 @@ const CatalogPage = () => {
     const isFavouriteInclude = (id) => favourites.includes(id)
 
     const updatedCars = cars.map(car => ({
-        id: car.id,
-        img: car.img,
-        make: car.make,
-        model: car.model,
-        year: car.year,
-        city: car.address.split(', ')[1],
-        country: car.address.split(', ')[2],
-        rentalCompany: car.rentalCompany,
-        type: car.type,
-        functionalities: car.functionalities,
+        ...car,
         isFavourite: isFavouriteInclude(car.id),
-        fuelConsumption: car.fuelConsumption,
-        engineSize: car.engineSize,
-        description: car.description,
-        accessories: car.accessories,
-        rentalConditions: car.rentalConditions,
-        mileage: car.mileage,
-        rentalPrice: car.rentalPrice
     }))
 
     return (

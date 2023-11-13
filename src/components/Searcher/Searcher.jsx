@@ -29,34 +29,3 @@ const Searcher = () => {
 }
 
 export default Searcher;
-//
-// <div className='col-2'>
-//     <Field
-//         className='form-select'
-//         name='price'
-//         as='select'
-//         placeholder='To $'
-//     >
-//         {Array.from({ length: 7 }, (_, index) => (
-//             <option key={index} value={30 + index * 10}>
-//                 To {30 + index * 10}$
-//             </option>
-//         ))}
-//     </Field>
-// </div>
-// <div className='col-2'>
-//     <Field
-//         className='form-control'
-//         name='mileageFrom'
-//         type='text'
-//         placeholder='From'
-//     />
-// </div>
-// <div className='col-2'>
-//     <Field
-//         className='form-control'
-//         name='mileageTo'
-//         type='text'
-//         placeholder='To'
-//     />
-// </div>

@@ -7,10 +7,12 @@ import {changeFavourite} from "../../redux/carsSlice";
 import {useState} from "react";
 import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
 import CarDetailsModal from "../CarDetailsModal/CarDetailsModal";
+import PropTypes from "prop-types";
 
 const CarCard = ({data}) => {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const dispatch = useDispatch();
+    const splitAddress = data.address.split(', ');
 
     const handleModalSwitch = () => setIsModalOpen(prevState => !prevState);
 
@@ -33,8 +35,8 @@ const CarCard = ({data}) => {
                     <span>{data.rentalPrice}$</span>
                 </div>
                 <div className={css.bottomText}>
-                    <span className={css.word}>{data.city}</span>
-                    <span className={css.word}>{data.country}</span>
+                    <span className={css.word}>{splitAddress[0]}</span>
+                    <span className={css.word}>{splitAddress[1]}</span>
                     <span className={css.word}>{data.rentalCompany}</span>
                     <span className={css.word}>{data.type}</span>
                     <span className={css.word}>{data.make}</span>
@@ -49,3 +51,7 @@ const CarCard = ({data}) => {
 }
 
 export default CarCard;
+
+CarCard.PropsType = {
+    data: PropTypes.array
+}
