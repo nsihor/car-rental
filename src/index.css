@@ -9,3 +9,7 @@ body {
 .form-select, .form-control{
     height: 48px;
 }
+
+ul{
+    padding: 0;
+}
