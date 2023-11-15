@@ -3,9 +3,9 @@ import {lazy, Suspense, useEffect} from "react";
 import {fetchCars} from "./redux/operations";
 import {useDispatch} from "react-redux";
 import Loader from './components/Loader/Loader';
+import Layout from "./components/Layout/Layout";
 
 
-const Layout = lazy(() => import('./components/Layout/Layout'));
 const CatalogPage = lazy(() => import('./pages/Catalog/CatalogPage'));
 const FavoritesPage = lazy(() => import('./pages/Favorites/FavoritesPage'));
 const MainPage = lazy(() => import('./pages/Main/MainPage'));

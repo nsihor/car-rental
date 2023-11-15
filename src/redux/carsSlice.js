@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
-import { fetchCars, fetchCarById } from './operations.js';
+import { fetchCars } from './operations.js';
 
 const handlePending = state => {
     state.isLoading = true;
@@ -17,12 +17,8 @@ const handleRejected = (state, { payload }) => {
 
 const initialState = {
     cars: [],
-    car: {},
     filter: '',
     favourite: [],
-    error: null,
-    isLoading: false,
-    isRefreshing: false,
 };
 
 const carsSlice = createSlice({
@@ -46,9 +42,6 @@ const carsSlice = createSlice({
         builder
             .addCase(fetchCars.fulfilled, (state, { payload }) => {
                 state.cars = payload;
-            })
-            .addCase(fetchCarById.fulfilled, (state, {payload}) => {
-                state.car = payload;
             })
             .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
             .addMatcher(({ type }) => type.endsWith('/fulfilled'), handleFulfilled)

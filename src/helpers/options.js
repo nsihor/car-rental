@@ -1,4 +1,5 @@
 const brandOptions = [
+    "All cars",
     "Buick",
     "Volvo",
     "HUMMER",

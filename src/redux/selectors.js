@@ -7,8 +7,13 @@ export const getFavourite = state => state.cars.favourite;
 
 export const getFilteredContacts = createSelector(
     [getCars, getFilter],
-    (cars, filter) =>
-        cars.filter(car =>
-            car.make.toLowerCase().includes(filter.toLowerCase())
-        ) || cars
+    (cars, filter) => {
+            if (filter === 'All cars') {
+                    return cars
+            }
+
+            return cars.filter(car =>
+                car.make.toLowerCase().includes(filter.toLowerCase())
+            ) || cars
+    }
 );
