@@ -32,7 +32,7 @@ const CarCard = ({data}) => {
                     <div>
                         <span>{data.make}</span>{' '}<span className={css.model}>{data.model}</span><span>, {data.year}</span>
                     </div>
-                    <span>{data.rentalPrice}$</span>
+                    <span>{data.rentalPrice}</span>
                 </div>
                 <div className={css.bottomText}>
                     <span className={css.word}>{splitAddress[1]}</span>
